@@ -1,0 +1,14 @@
+const express =require('express');
+const compression = require('compression');
+const session = require('express-session');
+const flash = require ('express-flash');
+const expressValidator = require ('express-validator');
+const expressStatusMonitor = require('express-status-monitor');
+const cookieParser = require('cookie-parser')
+const bodyParser = require ('body-parser');
+const logger = require ('morgan');
+const chalk = require ('chalk');
+const multer = require('multer');
+const path = require('path');
+const dotenv = require('dotenv');
+const app = express();
