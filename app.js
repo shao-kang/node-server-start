@@ -15,26 +15,29 @@ const errorHandler = require('errorhandler');
 
 
 /* load environment variables from .env file, where API keys and passwords are configured  */
-dotenv.load({path:'.env.example'});
+/* dotenv.load({path:'.env.example'}); */
 
 const app = express();
 
 /* Express configuration */
 
 app.set('port',process.env.PORT || 3000 );
-app.use(express.static(path.join(__dirname,'public'),{maxAge:3155760000O}));
+app.use(express.static(path.join(__dirname,'public'),{maxAge:315576000}));
 //注册ejs 模板为html 简单的说就是原来以。ejs为后缀的模板页 现在可以是html了
-app.engine('.html',require('ejs')__express);
+/* app.engine('.html',require('ejs')); */
 // 设置默认后缀名
-app.set('view engine','html')
+app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(flash());
+/* app.use(flash()); */
 
 
 //routers
+app.get('/',(req,res) =>{
+  res.render('index',{title: 'home'});
+})
 
 
 /* Error handleer */
